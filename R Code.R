@@ -6,23 +6,23 @@ set <- function(y) {
              x <<- y
              m <<- NULL
 }
-get <- function() x
-setInverse <- function(solve) m <<- solve
-getInverse <- function() m
-list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
+    get <- function() x
+    setInverse <- function(solve) m <<- solve
+    getInverse <- function() m
+    list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
 }
 
 #creating the cachesolve to inverse the matrix
 cachesolve <- function(x, ...) {
 m <- x$getinverse()
 if (!is.null(m)) {
-message("getting cached data")
-return(m)
-}
-data <- x$get()
-m <- solve(data, ...)
-x$setInverse(m)
-return (m)
+       message("getting cached data")
+       return(m)
+  }
+  data <- x$get()
+  m <- solve(data, ...)
+  x$setInverse(m)
+  return (m)
 }
  #example for input
 a_matrix <- makeCacheMatrix(matrix(1:18,9,2))
